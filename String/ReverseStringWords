@@ -67,3 +67,9 @@ public class Main {
         }
     }
 }
+
+Example Interview Dialogue:
+You: "To reverse the order of words in a string, I would first split the string into an array of words using split("\\s+"). Then, I would traverse the array in reverse order and print each word. This approach is simple and works well for most cases. However, if efficiency is a concern, I can use a StringBuilder to append the words in reverse order, which avoids multiple print statements and is more efficient for concatenation."
+
+Interviewer: "What about edge cases?"
+You: "I would handle edge cases like empty strings or strings with only spaces by trimming the string first and checking if it’s empty. This ensures the solution works for all inputs."
