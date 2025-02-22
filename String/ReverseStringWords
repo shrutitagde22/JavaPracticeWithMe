@@ -1,0 +1,69 @@
+//Que: Reverse the words of given string
+//Program
+
+public class Main {
+    public static void main(String args[]) {
+        String s1 = "nagpur is in maharashtra";
+        if (s1.isEmpty()) {
+            System.out.println("String is empty");
+        } else {
+            String[] s2 = s1.trim().split("\\s+"); // Split into words
+            for (int i = s2.length - 1; i >= 0; i--) { // Traverse in reverse
+                System.out.print(s2[i] + " ");
+            }
+        }
+    }
+}
+Explanation:
+split("\\s+"): Splits the string into an array of words.
+Loop: Iterates through the array in reverse order and prints each word.
+
+Time Complexity: O(n)
+split("\\s+"): O(n), where n is the length of the string.
+Loop: O(m), where m is the number of words (usually much smaller than n).
+
+Space Complexity: O(n)
+The split() method creates an array of size proportional to the input string.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Step 1: Understand the Problem
+The goal is to reverse the order of words in a string.
+Words are separated by one or more spaces.
+Edge cases:
+Empty string.
+String with only spaces.
+Leading/trailing spaces.
+Multiple spaces between words.
+
+Step 2: Think of Solutions
+Using split("\\s+") and Loop:
+Split the string into an array of words.
+Traverse the array in reverse order and print the words.
+Using StringBuilder:
+Split the string into words.
+Append words to a StringBuilder in reverse order.
+Using a Stack:
+Push words onto a stack and pop them to reverse the order.
+
+Step 3: Choose the Best Solution
+split("\\s+") and Loop is simple and efficient.
+StringBuilder is more efficient for concatenation.
+Stack is useful for learning but less efficient for this problem.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Optimized code:
+
+public class Main {
+    public static void main(String args[]) {
+        String s1 = "nagpur is in maharashtra";
+        if (s1.isEmpty()) {
+            System.out.println("String is empty");
+        } else {
+            String[] words = s1.trim().split("\\s+"); // Split into words
+            StringBuilder reversed = new StringBuilder();
+            for (int i = words.length - 1; i >= 0; i--) { // Traverse in reverse
+                reversed.append(words[i]).append(" ");
+            }
+            System.out.println(reversed.toString().trim()); // Remove trailing space
+        }
+    }
+}
