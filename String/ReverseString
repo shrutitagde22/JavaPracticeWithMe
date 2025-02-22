@@ -1,16 +1,54 @@
-
-
-
-
+ Que : Reverse an given string
+Input : "abcd"
+Output: "dcba"
+//Program
 public class Main
 {
 	public static void main(String[] args) {
 		String s1="shruti";
-		String s2;
-		for(int j=s1.length()-1;j>=0;j--)
-		{
-		    System.out.print(s1.charAt(j));
+		String s2="";
+		if(s1.isEmpty()) {
+			System.out.println("given string is empty");
+		} else {
+			for(int j=s1.length()-1; j>=0; j--)
+			{
+				s2=s2 + s1.charAt(j);
+			}
+			System.out.println(s2);
 		}
-		
 	}
 }
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Aproach:
+Check for string is empty or not(null check)
+Use a loop to traverse the string from the end to the start.
+concate each traversed character of string and store it into new string
+after entire traverse of loop we will print the new reversed string
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Time Complexity:
+Still O(n) because the loop runs n times.
+However, s2 += s1.charAt(j) is inefficient because strings in Java are immutable. Each concatenation creates a new string, leading to O(n^2) time complexity in the worst case.
+
+Space Complexity:
+O(n) because a new string s2 is created to store the reversed string.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Optimized solution: 
+
+public class Main {
+    public static void main(String[] args) {
+        String s1 = "shruti";
+        StringBuilder s2 = new StringBuilder();
+        for (int j = s1.length() - 1; j >= 0; j--) {
+            s2.append(s1.charAt(j)); // Efficiently append characters
+        }
+        System.out.println(s2.toString()); // Print the reversed string
+    }
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Time Complexity:
+O(n) because StringBuilder appends characters in constant time.
+
+Space Complexity:
+O(n) because StringBuilder stores the reversed string
